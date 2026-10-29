@@ -1,14 +1,10 @@
-import Cabecalho from "./componentes/Cabecalho"
-import Rodape from "./componentes/Rodape"
-import Jogo from "./paginas/Jogo"
+import Menu from "./paginas/Menu"
 
 const App = () => {
 
     return (
         <div>
-            <Cabecalho titulo="Dungeon Sweeper" />
-            <Jogo />
-            <Rodape />
+            <Menu />
         </div>
     )
 }

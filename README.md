@@ -49,7 +49,72 @@ Inventário, poções, ouro, baús, magias, itens mágicos e histórico de parti
 
 - **React + TypeScript (Vite, tsconfig estrito):** o jogo é uma interface com muito estado e muitas partes que se atualizam, o que se encaixa bem em React. O TypeScript estrito tipa os dados do jogo, como célula, monstro, partida e dificuldade.
 - **Componentização:** tabuleiro, célula, barra de HP, painel de mensagens e telas são componentes reutilizáveis.
-- **Biblioteca de estilo:** Tailwind CSS, para montar o visual em pixel art e a responsividade entre 320px e 1920px.
+- **Biblioteca de estilo:** Bootstrap, para o layout, os botões e a responsividade entre 320px e 1920px, com a fonte Press Start 2P para dar o visual de pixel art.
 - **Gerenciamento de estado:** estado local em cada célula (revelada, marcada) e estado global via Context + `useReducer` para a partida (HP, andar, dificuldade e estado do jogo).
 - **Hooks personalizados:** `useLocalStorage` (recorde), `useMonsters` (busca na API) e `useGame` (regras da partida).
 - **Roteamento e navegação:** React Router para as telas de menu, regras, jogo e fim de jogo.
+- **Consumo de API externa:** a Open5e fornece monstros reais por nível de desafio, com tratamento de carregamento e erro.
+- **Testes unitários:** Vitest para geração do tabuleiro, contagem de vizinhos, combate e progressão de andar.
+- **Persistência:** o recorde fica salvo em `localStorage` e continua disponível após recarregar a página.
+
+## Estrutura do projeto
+
+```
+dungeon-sweeper/
+├── src/
+│   ├── componentes/
+│   │   ├── Celula/
+│   │   ├── PainelMensagens/
+│   │   ├── Rodape/
+│   │   └── Tabuleiro/
+│   ├── modelo/
+│   │   └── interface.ts
+│   ├── paginas/
+│   │   ├── FimDeJogo/
+│   │   ├── Jogo/
+│   │   ├── Menu/
+│   │   └── Regras/
+│   ├── App.tsx
+│   └── main.tsx
+├── index.html
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
+
+- `componentes/`: peças reutilizáveis da interface.
+- `modelo/`: interfaces e tipos que representam os dados do jogo.
+- `paginas/`: telas do jogo.
+
+## Tecnologias utilizadas
+
+- React
+- TypeScript (modo estrito)
+- Vite
+- Bootstrap
+- Fonte Press Start 2P (via `@fontsource/press-start-2p`)
+- Open5e API
+
+## Funcionalidades implementadas
+
+- Estrutura inicial das páginas (Menu, Regras, Jogo, Fim de jogo) e dos componentes principais.
+- Layout da tela de Menu com Bootstrap.
+
+## Como instalar e executar
+
+```bash
+git clone <url-do-repositório>
+cd dungeon-sweeper
+npm install
+npm run dev
+```
+
+O jogo abre em `http://localhost:5173`.
+
+Para gerar a versão de produção:
+
+```bash
+npm run build
+```
+
+Os testes unitários serão adicionados nas próximas entregas.
