@@ -110,11 +110,3 @@ npm run dev
 ```
 
 O jogo abre em `http://localhost:5173`.
-
-Para gerar a versão de produção:
-
-```bash
-npm run build
-```
-
-Os testes unitários serão adicionados nas próximas entregas.
